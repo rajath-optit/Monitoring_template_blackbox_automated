@@ -1,0 +1,8 @@
+#Configuring Alertmanager
+prometheus:
+  prometheusSpec:
+    ruleSelector:
+      matchExpressions:
+        - key: role
+          operator: In
+          values: ["alert-rules1"]
