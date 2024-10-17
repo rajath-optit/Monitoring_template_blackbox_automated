@@ -1,7 +1,3 @@
-To add the Blackbox Exporter installation and Prometheus configuration to the README with the replacement of "optit" for security, here’s a refined version that includes placeholders for secure variables:
-
----
-
 ## Blackbox Exporter Installation
 
 ### Overview:
