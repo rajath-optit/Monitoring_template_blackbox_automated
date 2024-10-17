@@ -1,0 +1,21 @@
+# Add Blackbox Exporter scrape config
+additionalScrapeConfigs:
+  - job_name: "blackbox_exporter"
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - ${URL_1}
+        - ${URL_2}
+        - ${URL_3}
+        - http://10.10.30.93:9208/
+        - http://10.10.30.93:9205/
+        - http://10.10.30.93:9695/
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: prometheus-blackbox-exporter:9115
