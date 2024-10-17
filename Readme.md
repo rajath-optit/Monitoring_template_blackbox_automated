@@ -177,5 +177,3 @@ helm upgrade prometheus-stack prometheus-community/kube-prometheus-stack -f valu
 - Update alert rules or configurations as your monitoring needs evolve.
 
 ---
-
-Would you like me to add any specific future steps or further customization?
