@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: blackbox-exporter-rules
+  labels:
+    prometheus: kube-prometheus
+    role: alert-rules1
+spec:
+  groups:
+    - name: Blackbox_Exporter_rules
+      rules:
+        - alert: URLDown
+          expr: probe_success == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "A monitored URL is down"
+            description: "A monitored URL of job has been down for more than 1 minute."
