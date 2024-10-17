@@ -1,19 +1,24 @@
-Blackbox Exporter Installation 
+# Blackbox Exporter Installation
+
 ❖ Prometheus Blackbox Exporter is a vital tool for any organization that monitors 
 external services such as HTTP, DNS, TCP, ICMP, and more
+
 • Step 1: Installing Blackbox Exporter using Helm Chart :
 helm repo list -n monitoring
 helm repo update -n monitoring
 helm install prometheus-blackbox-exporter prometheuscommunity/prometheus-blackbox-exporter -n monitoring
+
 • Step 2: 
 After Installation, we will find a new pod and service like below :
 Pod Name: prometheus-blackbox-exporter-55c969f74f-9k5nd
 Service Name: prometheus-blackbox-exporter
+
 • Step 3: Update the Prometheus Configuration file
 1.we are using a custom [ values.yml ] file for Prometheus configurations
 2.File Location: /home/optit/
 3.Add following lines in [ values.yml ] file to get the scrap _config targets from 
 Blackbox exporter to Prometheus 
+
 # Add Blackbox Exporter scrape config
  additionalScrapeConfigs:
  - job_name: "blackbox_exporter"
